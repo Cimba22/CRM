@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/${POSTGRES_DB} # URL для подключения через хостовый порт
+    username: ${POSTGRES_USER} # Имя пользователя из переменных окружения
+    password: ${POSTGRES_PASSWORD} # Пароль из переменных окружения
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Автоматическое обновление схемы базы данных
+    show-sql: true # Включить логирование SQL-запросов
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect # Диалект для PostgreSQL
+
+logging:
+  level:
+    root: info
+    org.springframework: debug
+
+server:
+  port: 8080 # Порт, на котором работает Spring Boot
